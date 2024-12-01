@@ -4,6 +4,7 @@ pipeline {
         maven 'Maven_3_2_5'  
     }
 
+/*
    stages{
     stage('CompileandRunSonarAnalysis') {
             steps {	
@@ -11,7 +12,7 @@ pipeline {
 			}
         
   }
-
+*/
     stage('RunSCAAnalysisUsingSnyk') {
             steps {		
 				withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
@@ -19,5 +20,4 @@ pipeline {
 				}
 			}
     }		
-  }
 }
